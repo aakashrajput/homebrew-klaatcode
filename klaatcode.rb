@@ -6,8 +6,7 @@ class Klaatcode < Formula
 
   on_macos do
     on_arm do
-      url "https://klaatai.vercel.app/api/download?version=1.15.44&platform=darwin-arm64",
-          using: :nounzip
+      url "https://klaatai.vercel.app/api/download?version=1.15.44&platform=darwin-arm64"
       sha256 "34d859035667e9f9d9c27182fb6935e541999d61bae5077a55fc4061c7dfa4a1"
     end
   end
@@ -29,9 +28,7 @@ class Klaatcode < Formula
 
   def post_install
     if OS.mac?
-      # Sign with stable identifier so macOS XFENCE remembers the Allow rule
       system "codesign", "--force", "--sign", "-", "--identifier", "com.klaatai.klaatcode", "#{bin}/klaatcode"
-      # Remove quarantine attribute to prevent repeated Gatekeeper prompts
       system "xattr", "-dr", "com.apple.quarantine", "#{bin}/klaatcode"
     end
   end
