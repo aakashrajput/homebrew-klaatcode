@@ -4,29 +4,29 @@
 class Klaatcode < Formula
   desc "AI coding agent for the terminal — smart routing, knowledge graph, multi-tier models"
   homepage "https://klaatai.vercel.app"
-  version "1.15.42"
+  version "1.15.43"
   license "MIT"
 
   depends_on "ripgrep"
 
   on_macos do
     on_arm do
-      url "https://klaatai.vercel.app/api/download?version=1.15.42&platform=darwin-arm64",
+      url "https://klaatai.vercel.app/api/download?version=1.15.43&platform=darwin-arm64",
           extension: "zip"
-      sha256 "abaf7fdab2472d866b263684bf9ecd6a3cd18f464808e0fa145bc5a59f85121e"
+      sha256 "08c7950ff5589c384250ab21d8fb0b395364b83747305cde6c4b73c7bc8a4158"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://klaatai.vercel.app/api/download?version=1.15.42&platform=linux-arm64",
+      url "https://klaatai.vercel.app/api/download?version=1.15.43&platform=linux-arm64",
           extension: "tar.gz"
-      sha256 "6aa1a51e35a664323353e9006620151de2aae178c3e35f79859943ecebbd876e"
+      sha256 "8ce69606bac5775f0064acd32fc7e0cc814d3ea7318b65a20e607fcfbc470d9c"
     end
     on_intel do
-      url "https://klaatai.vercel.app/api/download?version=1.15.42&platform=linux-x64",
+      url "https://klaatai.vercel.app/api/download?version=1.15.43&platform=linux-x64",
           extension: "tar.gz"
-      sha256 "2ffb4efddd0e10093f681a491aa2353fbd98d2797f06f577ce1593b1b7fc612e"
+      sha256 "feca24ec95aa7faf2197446b5c5b0b2c890de250ddfb0a66b8837685dc0c6215"
     end
   end
 
