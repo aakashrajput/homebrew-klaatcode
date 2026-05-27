@@ -1,24 +1,24 @@
 class Klaatcode < Formula
   desc "AI-powered coding assistant CLI"
   homepage "https://klaatai.com"
-  version "1.15.44"
+  version "1.15.45"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://klaatai.vercel.app/api/download?version=1.15.44&platform=darwin-arm64"
-      sha256 "34d859035667e9f9d9c27182fb6935e541999d61bae5077a55fc4061c7dfa4a1"
+      url "https://klaatai.vercel.app/api/download?version=1.15.45&platform=darwin-arm64"
+      sha256 "04613bfdff1dc99b0b61dd4ec11354e90cb2fae879628905dcffb5d31f3c7918"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://klaatai.vercel.app/api/download?version=1.15.44&platform=linux-arm64"
-      sha256 "f2278f1a61f8ef99849a392ada73a7643d9f894a8f3115f0f95a5b372692f600"
+      url "https://klaatai.vercel.app/api/download?version=1.15.45&platform=linux-arm64"
+      sha256 "382122d456e542e40fac17a6270eedf00f0855f51cd50641f4722c668af7e06b"
     end
     on_intel do
-      url "https://klaatai.vercel.app/api/download?version=1.15.44&platform=linux-x64"
-      sha256 "949b8f2e904481f5b9fdf9d8c210a1f8c7c59f09fac45a0062af791c76c6fe56"
+      url "https://klaatai.vercel.app/api/download?version=1.15.45&platform=linux-x64"
+      sha256 "6bc5e208ce6e839683c54ab03ddf4f767ee6fa1c4dc1048902d91a85ec652e6e"
     end
   end
 
