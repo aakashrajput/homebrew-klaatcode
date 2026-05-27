@@ -1,37 +1,26 @@
-# typed: false
-# frozen_string_literal: true
-
 class Klaatcode < Formula
-  desc "AI coding agent for the terminal — smart routing, knowledge graph, multi-tier models"
-  homepage "https://klaatai.vercel.app"
-  version "1.15.43"
+  desc "AI-powered coding assistant CLI"
+  homepage "https://klaatai.com"
+  version "1.15.44"
   license "MIT"
 
-  depends_on "ripgrep"
-
-  on_macos do
-    on_arm do
-      url "https://klaatai.vercel.app/api/download?version=1.15.43&platform=darwin-arm64",
-          extension: "zip"
-      sha256 "08c7950ff5589c384250ab21d8fb0b395364b83747305cde6c4b73c7bc8a4158"
-    end
-  end
-
-  on_linux do
-    on_arm do
-      url "https://klaatai.vercel.app/api/download?version=1.15.43&platform=linux-arm64",
-          extension: "tar.gz"
-      sha256 "8ce69606bac5775f0064acd32fc7e0cc814d3ea7318b65a20e607fcfbc470d9c"
-    end
-    on_intel do
-      url "https://klaatai.vercel.app/api/download?version=1.15.43&platform=linux-x64",
-          extension: "tar.gz"
-      sha256 "feca24ec95aa7faf2197446b5c5b0b2c890de250ddfb0a66b8837685dc0c6215"
-    end
+  if Hardware::CPU.arm?
+    url "https://github.com/aakashrajput/KlaatAI/releases/download/v1.15.44/klaatcode-darwin-arm64.zip"
+    sha256 "34d859035667e9f9d9c27182fb6935e541999d61bae5077a55fc4061c7dfa4a1"
+  else
+    url "https://github.com/aakashrajput/KlaatAI/releases/download/v1.15.44/klaatcode-darwin-arm64.zip"
+    sha256 "34d859035667e9f9d9c27182fb6935e541999d61bae5077a55fc4061c7dfa4a1"
   end
 
   def install
     bin.install "klaatcode"
+  end
+
+  def post_install
+    # Sign the binary with a stable identifier so macOS XFENCE remembers the Allow rule
+    system "codesign", "--force", "--sign", "-", "--identifier", "com.klaatai.klaatcode", "#{bin}/klaatcode"
+    # Remove quarantine attribute to prevent repeated Gatekeeper prompts
+    system "xattr", "-dr", "com.apple.quarantine", "#{bin}/klaatcode"
   end
 
   test do
